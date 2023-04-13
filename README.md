@@ -1,0 +1,1 @@
+Demonstration of use of derivatives in CT images of wood.
