@@ -25,14 +25,14 @@ RR = np.hypot(R[:,:,0],R[:,:,1])
 I[RR < r] = 1
 transition = (RR >= r) & (RR < r+delta)
 I[transition] = np.exp((r - RR[transition])/2)
-plt.imsave('circle.png',I) # export as png
+plt.imsave('circle.png',I,cmap='gray') # export as png
 
 ## Diagonal Wave
 k = 2*np.pi/(M/5)
 m = 2*np.pi/(M/5)
 x,y = np.meshgrid(np.arange(1,N+1),np.arange(1,M+1))
 I = np.sin(k*x + m*y)
-plt.imsave('diagWaves.png',I) # export as png
+plt.imsave('diagWaves.png',I,cmap='gray') # export as png
 
 # Circular homogeneous waves around centre
 k = 2*np.pi/growthRingWidth
@@ -45,11 +45,11 @@ I = np.sin(k*RR)
 transition = (RR >= r) & (RR < r+delta)
 I[transition] = np.exp((r - RR[transition])/2)
 I[RR >= r+delta] = 0
-plt.imsave('circWaves.png',I) # export as png
+plt.imsave('circWaves.png',I,cmap='gray') # export as png
 
 ## Noisy image
 I = I + .1*np.random.randn(M,N)
-plt.imsave('circWavesNoisy.png',I) # export as png
+plt.imsave('circWavesNoisy.png',I,cmap='gray') # export as png
 
 
 ## Circular waves around centre with wavyness
@@ -65,7 +65,7 @@ I = np.sin(k*RR)
 transition = (RR >= r) & (RR < r+delta)
 I[transition] = np.exp((r - RR[transition])/2)
 I[RR >= r+delta] = 0
-plt.imsave('circWavesWavy.png',I) # export as png
+plt.imsave('circWavesWavy.png',I,cmap='gray') # export as png
 
 
 ## Plot
